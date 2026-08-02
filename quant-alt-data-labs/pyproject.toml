@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quant-alt-data-lab"
+version = "0.1.0"
+description = "Portfolio-ready alternative-data research pipelines for earnings disclosures, insider transactions, and Reddit sentiment."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Arjun Narasimhan"}]
+dependencies = [
+  "beautifulsoup4>=4.12,<5",
+  "lxml>=5,<7",
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<3",
+  "plotly>=5.24,<7",
+  "praw>=7.8,<8",
+  "psycopg[binary]>=3.2,<4",
+  "python-dotenv>=1.0,<2",
+  "requests>=2.32,<3",
+  "scikit-learn>=1.5,<2",
+  "sqlalchemy>=2.0,<3",
+  "streamlit>=1.40,<2",
+  "statsmodels>=0.14,<1",
+  "vaderSentiment>=3.3,<4",
+  "yfinance>=0.2.50,<2"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "pytest-cov>=5,<7",
+  "ruff>=0.8,<1"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
